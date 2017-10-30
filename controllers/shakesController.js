@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 });
 
 
-// Index Page (render all burgers to DOM)
+// Index Page (render all shakes to DOM)
 router.get('/index', function (req, res) {
   shake.selectAll(function(data) {
     var hbsObject = { shakes: data };
@@ -34,7 +34,7 @@ router.post('/shake/create', function (req, res) {
 
 // Devour a Shake
 router.post('/shake/eat/:id', function (req, res) {
-  shake.updateOne(req.params.id, function() {
+  shake.updateOne(req.params.id, { devoured: true }, function() {
     res.redirect('/index');
   });
 });

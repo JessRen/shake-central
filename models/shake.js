@@ -5,19 +5,19 @@ var orm = require('../config/orm.js');
 var shake = {
 
   selectAll: function(callback){
-    orm.selectAll(function(res){
+    orm.selectAll("shakes", function(res){
       callback(res);
     });
   },
 
   insertOne: function(shake_name, callback){
-    orm.insertOne(shake_name, function(res){
+    orm.insertOne("shakes", "shake_name", [shake_name], function(res){
       callback(res);
     });
   },
 
-  updateOne: function(shake_id, callback){
-    orm.updateOne(shake_id, function(res){
+  updateOne: function(shake_id, obj, callback){
+    orm.updateOne("shakes", obj, "id = " + shake_id, function(res){
       callback(res);
     });
   }
