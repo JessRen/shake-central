@@ -6,7 +6,8 @@ DROP TABLE IF EXISTS shakes;
 
 # Create the burgers table
 CREATE TABLE shakes (
-id integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+id integer NOT NULL AUTO_INCREMENT,
 shake_name varchar(50) NOT NULL,
 devoured BOOLEAN DEFAULT false,
+Primary Key(id)
 );
